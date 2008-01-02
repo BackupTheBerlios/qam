@@ -89,6 +89,10 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 		m_tabWidget.setTabIcon(m_pageIndex.close, QIcon(":/pic/close_256x256.xpm"));
 		m_tabWidget.setTabToolTip(m_pageIndex.close, "Schließen");
 
+	// set minimum size
+
+	setMinimumSize(200, 200);
+
 	// load main window state
 
 	loadSettings();
@@ -219,7 +223,7 @@ void CMonitor::onResponseHeaderReceived(const QHttpResponseHeader &responseHeade
 				m_Http.clearPendingRequests();
 				m_Http.close();
 		}
-        //m_Http.abort();
+
         return;
     }
 }
@@ -486,6 +490,25 @@ void CMonitor::loadSettings()
 			m_useProxy =	(m_proxyHost.length() > 0) && 
 							(m_proxyPort <= 65535);
 		}
+#if QT_VERSION >= 0x040100
+		if(m_useProxy) {
+			QNetworkProxy* proxy = new QNetworkProxy();
+		// QNetworkProxy::HttpProxy was only added in qt 4.3
+		#if QT_VERSION >= 0x040300
+			proxy->setType(QNetworkProxy::HttpProxy);
+		#else
+			proxy->setType(QNetworkProxy::DefaultProxy);
+		#endif
+			proxy->setHostName(m_proxyHost);
+			proxy->setPort(m_proxyPort);
+			if(m_proxyUser.length() > 0)
+				proxy->setUser(m_proxyUser);
+			if(m_proxyPassword.length() > 0)
+				proxy->setPassword(m_proxyPassword);
+
+			QNetworkProxy::setApplicationProxy(*proxy);
+		}
+#endif // #if QT_VERSION >= 0x040100
 	settings.endGroup();
 }
 

@@ -18,6 +18,8 @@
  *	USA.
  *****************************************************************************/
 
+#include <QMessageBox>
+
 #include "viewconfigure.h"
 #include "options.h"
 
@@ -33,26 +35,21 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 	m_spinUpdateInterval(),
 	m_labelWindowTransparency("Fenstertransparenz"),
 	m_spinWindowTransparency(),
-	m_labelWindowAlwaysOnTop("Fenster immer zuoberst"),
-	m_checkWindowAlwaysOnTop(),
+	m_checkWindowAlwaysOnTop("Fenster immer zuoberst"),
 	
 	// network settings
 	m_groupNetworkSettings("Netzwerk"),
 	m_gridNetworkSettings(&m_groupNetworkSettings),
-	m_labelCheckForNewVersion("Auf Updates prüfen"),
-	m_checkCheckForNewVersion(),
-	m_labelUseProxy("HTTP-Proxy verwenden"),
-	m_checkUseProxy(),
+	m_checkCheckForNewVersion("Auf Updates prüfen"),
+	m_checkUseProxy("HTTP-Proxy verwenden"),
 	m_labelProxy("Proxy:Port"),
 	m_hboxProxyInput(),
-	m_editProxyHost(),
-	m_labelProxySeperator(":"),
-	m_editProxyPort(),
 	m_labelProxyUser("Proxy User"),
 	m_editProxyUser(),
 	m_labelProxyPassword("Proxy Passwort"),
 	m_editProxyPassword(),
 
+	// rest
 	m_groupAbout("Über"),
 	m_layoutAbout(&m_groupAbout),
 	m_labelAbout(),
@@ -72,39 +69,45 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 
 	m_vboxScrollLayout.addWidget(&m_groupWindowSettings);
 	m_groupWindowSettings.setFlat(true);
-	m_gridWindowSettings.addWidget(&m_labelUpdateInterval, 0, 0, Qt::AlignVCenter);
-	m_gridWindowSettings.addWidget(&m_spinUpdateInterval, 0, 1, Qt::AlignVCenter);
+	m_gridWindowSettings.setMargin(0);
+	m_gridWindowSettings.setRowMinimumHeight(0, 5);
+	m_gridWindowSettings.addWidget(&m_labelUpdateInterval, 1, 0, 1, 2, Qt::AlignLeft);
+	m_gridWindowSettings.addWidget(&m_spinUpdateInterval, 2, 0, 1, 2, Qt::AlignLeft);
 		m_spinUpdateInterval.setRange(10, 300);
 		m_spinUpdateInterval.setSingleStep(10);
 		m_spinUpdateInterval.setSuffix(" sek");
-	m_gridWindowSettings.addWidget(&m_labelWindowTransparency, 1, 0, Qt::AlignVCenter);
-	m_gridWindowSettings.addWidget(&m_spinWindowTransparency, 1, 1, Qt::AlignVCenter);
+	m_gridWindowSettings.addWidget(&m_labelWindowTransparency, 3, 0, 1, 2, Qt::AlignLeft);
+	m_gridWindowSettings.addWidget(&m_spinWindowTransparency, 4, 0, 1, 2, Qt::AlignLeft);
 		m_spinWindowTransparency.setRange(0, 80);
 		m_spinWindowTransparency.setSingleStep(1);
 		m_spinWindowTransparency.setSuffix(" %");
-	m_gridWindowSettings.addWidget(&m_labelWindowAlwaysOnTop, 2, 0, Qt::AlignVCenter);
-	m_gridWindowSettings.addWidget(&m_checkWindowAlwaysOnTop, 2, 1, Qt::AlignVCenter);
+	QHBoxLayout* layoutCheckWindowOnTop = new QHBoxLayout();
+	m_gridWindowSettings.addLayout(layoutCheckWindowOnTop, 5, 0, 1, 2);
+	layoutCheckWindowOnTop->addWidget(&m_checkWindowAlwaysOnTop, Qt::AlignLeft);
 		m_checkWindowAlwaysOnTop.setEnabled(false);
-	m_gridWindowSettings.addWidget(&m_labelCheckForNewVersion, 3, 0, Qt::AlignVCenter);
-	m_gridWindowSettings.addWidget(&m_checkCheckForNewVersion, 3, 1, Qt::AlignVCenter);
+	layoutCheckWindowOnTop->addStretch(10);
 
 	// network settings group
+	
 	m_vboxScrollLayout.addWidget(&m_groupNetworkSettings);
 	m_groupNetworkSettings.setFlat(true);
-	m_gridNetworkSettings.addWidget(&m_labelCheckForNewVersion, 0, 0, Qt::AlignVCenter);
-	m_gridNetworkSettings.addWidget(&m_checkCheckForNewVersion, 0, 1, Qt::AlignVCenter);
+	m_gridNetworkSettings.setMargin(0);
+	m_gridNetworkSettings.setRowMinimumHeight(0, 5);
+	QHBoxLayout* layoutCheckVersion = new QHBoxLayout();
+	m_gridNetworkSettings.addLayout(layoutCheckVersion, 1, 0, 1, 2);
+	layoutCheckVersion->addWidget(&m_checkCheckForNewVersion, Qt::AlignLeft);
+	layoutCheckVersion->addStretch(10);
 #if QT_VERSION >= 0x040100
-	m_gridNetworkSettings.addWidget(&m_labelUseProxy, 1, 0, Qt::AlignVCenter);
-	m_gridNetworkSettings.addWidget(&m_checkUseProxy, 1, 1, Qt::AlignVCenter);
-	m_gridNetworkSettings.addWidget(&m_labelProxy, 2, 0, Qt::AlignVCenter);
-	m_gridNetworkSettings.addLayout(&m_hboxProxyInput, 2, 1, Qt::AlignVCenter);
-		m_hboxProxyInput.addWidget(&m_editProxyHost, 4, Qt::AlignVCenter);
-		m_hboxProxyInput.addWidget(&m_editProxyPort, 1, Qt::AlignVCenter);
-			m_editProxyPort.setInputMask("D0000");
-	m_gridNetworkSettings.addWidget(&m_labelProxyUser, 3, 0, Qt::AlignVCenter);
-	m_gridNetworkSettings.addWidget(&m_editProxyUser, 3, 1, Qt::AlignVCenter);
-	m_gridNetworkSettings.addWidget(&m_labelProxyPassword, 4, 0, Qt::AlignVCenter);
-	m_gridNetworkSettings.addWidget(&m_editProxyPassword, 4, 1, Qt::AlignVCenter);
+	QHBoxLayout* layoutUseProxy = new QHBoxLayout();
+	m_gridNetworkSettings.addLayout(layoutUseProxy, 2, 0, 1, 2);
+	layoutUseProxy->addWidget(&m_checkUseProxy, Qt::AlignLeft);
+	layoutUseProxy->addStretch(10);
+	m_gridNetworkSettings.addWidget(&m_labelProxy, 3, 0, 1, 2, Qt::AlignLeft);
+	m_gridNetworkSettings.addWidget(&m_editProxyHost, 4, 0, 1, 2, Qt::AlignLeft);
+	m_gridNetworkSettings.addWidget(&m_labelProxyUser, 5, 0, 1, 2, Qt::AlignLeft);
+	m_gridNetworkSettings.addWidget(&m_editProxyUser, 6, 0, 1, 2, Qt::AlignLeft);
+	m_gridNetworkSettings.addWidget(&m_labelProxyPassword, 7, 0, 1, 2, Qt::AlignLeft);
+	m_gridNetworkSettings.addWidget(&m_editProxyPassword, 8, 0, 1, 2, Qt::AlignLeft);
 #endif // #if QT_VERSION >= 0x040100
 
 	// add spacer
@@ -118,7 +121,6 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 
 	m_widgetScrollChild.setLayout(&m_vboxScrollLayout);
 	m_scrollArea.setWidget(&m_widgetScrollChild);
-	//m_scrollArea.setLayout(&m_vboxScrollLayout);
 	m_topLayout.addWidget(&m_scrollArea);
 
 	// set up about
@@ -150,6 +152,7 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 		m_layoutButtons.setAlignment(&m_buttonReset, Qt::AlignLeft);
 	m_layoutButtons.addWidget(&m_widgetButtonSpacer, 100);
 		m_layoutButtons.setAlignment(&m_widgetButtonSpacer, Qt::AlignLeft);
+		m_widgetButtonSpacer.setMinimumSize(0,0);
 	m_layoutButtons.addWidget(&m_buttonApply);
 		m_layoutButtons.setAlignment(&m_buttonApply, Qt::AlignRight);
 		m_buttonApply.setEnabled(false);
@@ -185,8 +188,6 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 	connect(&m_checkUseProxy, SIGNAL(stateChanged(int)),
 				this, SLOT(onCheckBoxStateChanged(int)));
 	connect(&m_editProxyHost, SIGNAL(textEdited(const QString&)),
-				this, SLOT(onEditTextChanged(const QString&)));
-	connect(&m_editProxyPort, SIGNAL(textEdited(const QString&)),
 				this, SLOT(onEditTextChanged(const QString&)));
 	connect(&m_editProxyUser, SIGNAL(textEdited(const QString&)),
 				this, SLOT(onEditTextChanged(const QString&)));
@@ -227,8 +228,9 @@ void CViewConfigure::loadSettings()
 #if QT_VERSION >= 0x040100
 		bool useProxy = settings.value("useProxy", false).toBool();
 		m_checkUseProxy.setChecked(useProxy ? Qt::Checked : Qt::Unchecked);
-		m_editProxyHost.setText(settings.value("proxyHost", "").toString());
-		m_editProxyPort.setText(settings.value("proxyPort", 80).toString());
+		QString proxy = settings.value("proxyHost", "hostname").toString();
+		proxy += ":" + settings.value("proxyPort", 80).toString();
+		m_editProxyHost.setText(proxy);
 		m_editProxyUser.setText(settings.value("proxyUser", "").toString());
 		m_editProxyPassword.setText(settings.value("proxyPassword", "").toString());
 		m_editProxyPassword.setEchoMode(QLineEdit::Password);
@@ -257,8 +259,10 @@ void CViewConfigure::writeSettings()
 		settings.setValue("checkForNewVersion", m_checkCheckForNewVersion.checkState() == Qt::Checked ? true : false);
 #if QT_VERSION >= 0x040100
 		settings.setValue("useProxy", m_checkUseProxy.checkState() == Qt::Checked ? true : false);
-		settings.setValue("proxyHost", m_editProxyHost.text());
-		settings.setValue("proxyPort", m_editProxyPort.text());
+		QString proxyHost = m_editProxyHost.text().section(':', 0, 0);
+		QString proxyPort = m_editProxyHost.text().section(':', 1, 1);
+		settings.setValue("proxyHost", proxyHost);
+		settings.setValue("proxyPort", proxyPort);
 		settings.setValue("proxyUser", m_editProxyUser.text());
 		settings.setValue("proxyPassword", m_editProxyPassword.text());
 #endif
@@ -279,6 +283,13 @@ void CViewConfigure::onValuesChanged(QStringList& affected, void* causer)
 
 void CViewConfigure::onButtonApplyClicked(bool)
 {
+	if(m_checkUseProxy.checkState() == Qt::Checked) {
+		if(!proxyInputValid()) {
+			QMessageBox::critical(this, tr("Proxy ungültig"), tr("Die Angabe für den Proxy ist ungültig."), QMessageBox::Ok, QMessageBox::NoButton);
+			return;
+		}
+	}
+
 	writeSettings();
 	m_buttonApply.setEnabled(false);
 	m_buttonReset.setEnabled(false);
@@ -334,9 +345,56 @@ void CViewConfigure::switchProxySettingsVisible(bool show)
 	m_labelProxyUser.setVisible(show);
 	m_labelProxyPassword.setVisible(show);
 	m_editProxyHost.setVisible(show);
-	m_editProxyPort.setVisible(show);
 	m_editProxyUser.setVisible(show);
 	m_editProxyPassword.setVisible(show);
 }
 
+bool CViewConfigure::proxyInputValid() const
+{
+	const QString h = m_editProxyHost.text().section(':', 0, 0);
+	const QString p = m_editProxyHost.text().section(':', 1, 1);
 
+	if((h.length() < 1) || (h.length() > 255))
+		return false;
+	if((p.length() < 1) || (p.length() > 5))
+		return false;
+
+	int i;
+
+	for(i=0;i<p.length();i++) {
+		if(!p[i].isDigit())
+			return false;
+	}
+
+	const QStringList hs = h.split('.');
+
+	if(hs.size() < 1) {
+		return false;
+	}
+
+	for(i=0;i<hs.size();i++) {
+		const QString& e = hs[i];
+		int n;
+		
+		if((e.length() < 1) || (e.length() > 63)) 
+			return false;
+
+		if(!e[0].isLetter())
+			return false;
+		
+		for(n=0;n<e.length();n++) {
+			const char c = e[n].toAscii();
+			const QChar& q = e[n];
+			
+			if(c == 0)
+				return false;
+			if( ! ((c == '-') || q.isDigit() || q.isLetter()) )
+				return false;
+		}
+		
+		if(!(e[n-1].isDigit() || e[n-1].isLetter()))
+			return false;
+	}
+
+	return true;	
+}

@@ -112,21 +112,16 @@ class CViewConfigure : public QWidget
 		QSpinBox m_spinUpdateInterval;
 		QLabel m_labelWindowTransparency;
 		QSpinBox m_spinWindowTransparency;
-		QLabel m_labelWindowAlwaysOnTop;
 		QCheckBox m_checkWindowAlwaysOnTop;
 
 	// network settings
 	CGroupBox m_groupNetworkSettings;
 		QGridLayout m_gridNetworkSettings;
-		QLabel m_labelCheckForNewVersion;
 		QCheckBox m_checkCheckForNewVersion;
-		QLabel m_labelUseProxy;
 		QCheckBox m_checkUseProxy;
 		QLabel m_labelProxy;
 		QHBoxLayout m_hboxProxyInput;
 			QLineEdit m_editProxyHost;
-			QLabel m_labelProxySeperator;
-			QLineEdit m_editProxyPort;
 		QLabel m_labelProxyUser;
 		QLineEdit m_editProxyUser;
 		QLabel m_labelProxyPassword;
@@ -151,6 +146,7 @@ class CViewConfigure : public QWidget
 	void loadSettings();
 	void writeSettings();
 	void switchProxySettingsVisible(bool show);
+	bool proxyInputValid() const;
 };
 
 #endif // #ifndef _VIEWCONFIGURE_H_

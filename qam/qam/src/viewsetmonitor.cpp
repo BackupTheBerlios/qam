@@ -51,11 +51,11 @@ CViewSetMonitor::CViewSetMonitor(QWidget* parent, Qt::WFlags f) :
 {
 	m_topLayout.addWidget(&m_groupCommonSettings);
 	m_topLayout.setMargin(2);
-	m_gridCommonSettings.addWidget(&m_labelLocation, 0, 0, Qt::AlignVCenter);
-	m_gridCommonSettings.addWidget(&m_comboLocation, 0, 1, Qt::AlignVCenter);
+	m_gridCommonSettings.addWidget(&m_labelLocation, 0, 0, Qt::AlignVCenter | Qt::AlignLeft);
+	m_gridCommonSettings.addWidget(&m_comboLocation, 0, 1, Qt::AlignVCenter | Qt::AlignLeft);
 		m_comboLocation.setEditable(true);
-	m_gridCommonSettings.addWidget(&m_labelStation, 1, 0, Qt::AlignVCenter);
-	m_gridCommonSettings.addWidget(&m_comboStation, 1, 1, Qt::AlignVCenter);
+	m_gridCommonSettings.addWidget(&m_labelStation, 1, 0, Qt::AlignVCenter | Qt::AlignLeft);
+	m_gridCommonSettings.addWidget(&m_comboStation, 1, 1, Qt::AlignVCenter | Qt::AlignLeft);
 		m_comboStation.setEditable(true);
 		m_comboStation.setAutoCompletion(true);
 		m_comboStation.setDuplicatesEnabled(false);
@@ -64,11 +64,12 @@ CViewSetMonitor::CViewSetMonitor(QWidget* parent, Qt::WFlags f) :
 		c->setCompletionMode(QCompleter::InlineCompletion /* QCompleter::PopupCompletion */);
 		c->setModelSorting(QCompleter::UnsortedModel);
 		c->setCaseSensitivity(Qt::CaseInsensitive);
-	m_gridCommonSettings.addWidget(&m_labelTimeOffset, 2, 0, Qt::AlignVCenter);
-	m_gridCommonSettings.addWidget(&m_spinTimeOffset, 2, 1, Qt::AlignVCenter);
+	m_gridCommonSettings.addWidget(&m_labelTimeOffset, 2, 0, Qt::AlignVCenter | Qt::AlignLeft);
+	m_gridCommonSettings.addWidget(&m_spinTimeOffset,  2, 1, Qt::AlignVCenter | Qt::AlignLeft);
 		m_spinTimeOffset.setRange(0, 60);
 		m_spinTimeOffset.setSingleStep(1);
 		m_spinTimeOffset.setSuffix(" min");
+	m_gridCommonSettings.setColumnStretch(2, 10);
 	
 	// insert spacer
 	m_topLayout.addStretch(100);

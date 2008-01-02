@@ -34,8 +34,8 @@ CFooter::CFooter(QWidget* toResize, QWidget* parent, Qt::WFlags f) :
 	m_resizerMiddle(toResize, CResizer::Middle),
 	m_resizerRight(toResize, CResizer::Right)
 {
-	setMaximumSize(QWIDGETSIZE_MAX, 10);
-	setMinimumSize(120, 5);
+	setMaximumSize(QWIDGETSIZE_MAX, 6);
+	setMinimumSize(120, 6);
 
 	m_layoutTop.setMargin(0);
 	m_layoutTop.setSpacing(0);

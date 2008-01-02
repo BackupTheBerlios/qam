@@ -89,6 +89,15 @@ void CViewMonitor::Update(QList<ConnectionEntry> & connections)
 		m_treeWidget.addTopLevelItem(item);
 	}
 
+	if(i<10) {
+		for(;i<10;i++) {
+			QTreeWidgetItem* item = new QTreeWidgetItem(&m_treeWidget);
+			item->setText(0, "");
+			item->setText(1, "");
+			item->setText(2, "");
+		}
+	}
+
 	m_treeWidget.resizeColumnToContents(0);
 	m_treeWidget.resizeColumnToContents(1);
 	m_treeWidget.resizeColumnToContents(2);
