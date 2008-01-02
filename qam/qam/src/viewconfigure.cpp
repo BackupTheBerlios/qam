@@ -22,6 +22,7 @@
 
 #include "viewconfigure.h"
 #include "options.h"
+#include "monitor.h"
 
 CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 	QWidget(parent, f),
@@ -49,11 +50,13 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 	m_labelProxyPassword("Proxy Passwort"),
 	m_editProxyPassword(),
 
-	// rest
+	// about
 	m_groupAbout("Über"),
 	m_layoutAbout(&m_groupAbout),
-	m_labelAbout(),
+	m_labelVersion(QString("Version: %1.%2.%3").arg(CVersion::major()).arg(CVersion::minor()).arg(CVersion::revision())),
+	m_editAbout(),
 
+	// buttons
 	m_widgetButtons(),
 	m_layoutButtons(&m_widgetButtons),
 	m_buttonAbout("Über"),
@@ -61,6 +64,7 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 	m_buttonReset("Zurücksetzen"),
 	m_widgetButtonSpacer(),
 
+	// ...
 	m_bShowingAbout(false)
 {
 	m_topLayout.setMargin(2);
@@ -127,15 +131,17 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 
 	m_topLayout.addWidget(&m_groupAbout, 20);
 	m_groupAbout.hide();
-	m_layoutAbout.addWidget(&m_labelAbout);
+	m_layoutAbout.addWidget(&m_labelVersion);
+	m_layoutAbout.addSpacing(5);
+	m_layoutAbout.addWidget(&m_editAbout);
 	m_layoutAbout.setMargin(3);
 	m_layoutAbout.setSpacing(0);
 		QString about = "copyright (C) 2007 by gf@nichtcool.de\n\n"
 						"Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz.\n\n"
 						"Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.\n\n"
 						"Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, schreiben Sie an die Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110, USA.";
-		m_labelAbout.setText(about);
-		m_labelAbout.setReadOnly(true);
+		m_editAbout.setText(about);
+		m_editAbout.setReadOnly(true);
 
 	// add spacer before buttons
 

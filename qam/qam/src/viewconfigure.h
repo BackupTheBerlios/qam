@@ -129,7 +129,8 @@ class CViewConfigure : public QWidget
 
 	CGroupBox m_groupAbout;
 		QVBoxLayout m_layoutAbout;
-		QTextEdit m_labelAbout;
+		QLabel m_labelVersion;
+		QTextEdit m_editAbout;
 
 	QWidget m_spacer;
 
