@@ -56,7 +56,7 @@ class CVersion
 	static uint revision() {return m_revision;};
 	static void version(uint& major, uint& minor, uint& revision) { major = m_major; minor = m_minor; revision = m_revision; };
   protected:
-	static const uint m_major = 1, m_minor = 1, m_revision = 0;
+	static const uint m_major = 1, m_minor = 2, m_revision = 0;
   private:
 	CVersion();
 	~CVersion();
