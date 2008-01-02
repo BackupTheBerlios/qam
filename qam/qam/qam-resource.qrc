@@ -1,0 +1,9 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+  <file>pic/station_256x256.xpm</file>
+  <file>pic/changestation_256x256.xpm</file>
+  <file>pic/config_256x256.xpm</file>
+  <file>pic/close_256x256.xpm</file>
+  <file>haltestellen.txt</file>
+</qresource>
+</RCC>

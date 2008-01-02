@@ -1,0 +1,694 @@
+A.-Weineck-Straße
+Aachener Straße
+Abzweig nach Reick
+Achtbeeteweg
+Adalb.-Stifter-Weg
+Ahlbecker Straße
+Alaunplatz
+Albert-Wolf-Platz
+Alberthafen
+Albertplatz
+Alexander-Puschkin-Platz
+Alfred-Althus-Str.
+Alfred-Thiele-Straße
+Altburgstädtel
+Altcotta
+Altdobritz
+Altenberger Platz
+Altenberger Straße
+Alter Postweg
+Alter Schlachthof
+Altfranken
+Altfranken (Schleife)
+Altkaditz
+Altkaitz
+Altklotzsche
+Altleuben
+Altleubnitz
+Altlockwitz
+Altmarkt
+Altmockritz
+Altnaußlitz
+Altnossener Straße
+Altpieschen
+Altreick
+Altserkowitz
+Alttolkewitz
+Alttrachau
+Altwachwitz
+Altwilschdorf
+Am Altfrankener Park
+Am Brüchigt
+Am Festspielhaus
+Am Galgenberg
+Am Grunde
+Am Hellerhof
+Am Hellerrand
+Am Lehmberg
+Am Olter
+Am Querfeld
+Am Schöpsdamm
+Am Steinacker
+Am Steinbruch
+Am Steinkreuz
+Am Trachauer Bahnhof
+Am Urnenfeld
+Am Waldrand
+Am Weißen Adler
+Am Weißiger Bach
+Am Wiesenrand
+Am Zwingerteich
+Amalie-Dietrich-Platz
+Amselgrund
+Amselsteg
+An den Winkelwiesen
+An der Flutrinne
+An der Obstplantage
+An der Post
+Angelikastraße
+Anton-/Leipziger Str.
+Arbeitsamt
+Arkonastraße
+Arno-Schellenberg-Str.
+Auerstraße
+Auf der Höhe
+Augsburger Straße
+Autobahnmeisterei
+Babisnauer Straße
+Bahnhof Grenzstraße
+Bahnhof Heidenau
+Bahnhof Klotzsche
+Bahnhof Mitte
+Bahnhof Neustadt
+Bahnhof Reick
+Bahnhofstraße
+Bamberger Straße
+Bannewitzer Straße
+Bärwalder Straße
+Baumann-Logistik
+Baumwiese
+Bautzn.-/Rothenb.Str.
+Bebelplatz
+Beckerstraße
+Bedrich-Smetana-Str.
+Beerenhut
+Bergfelderweg
+Berggartenstraße
+Berggießhübler Straße
+Bergmannstraße
+Bernhardstraße
+Berthold-Haupt-Str.
+Betriebshof Bühlau
+Betriebshof Gorbitz
+Betriebshof Gruna
+Betriebshof Waltherstr.
+Bf. Cossebaude
+Bf. Neustadt (Hansastr.)
+Bf. Niedersedlitz
+Birkenhainer Straße
+Bischofsplatz
+Bischofsweg
+Blasew.-/Fetscherstraße
+Bodemerweg
+Böhmertstraße
+Bonhoefferplatz
+Bönischplatz
+Bonnewitz
+Bonnewitzer Straße
+Borsbergblick
+Borsbergstraße
+Borstraße
+Borthen
+Boxdorf Schule
+Boxdorfer Straße
+Breitscheidstraße
+Bremer Straße
+Brunnenweg
+Btf. Gruna (Tiergartenstr.)
+Btf. Trachenberge
+Buchenstraße
+Budapester Straße
+Bünaustraße
+Bunsenstraße
+Burgenlandstraße
+Bürgerstraße
+Burgker Straße
+Burgkstraße
+C.-D.-Friedrich-Straße
+Cäcilienstraße
+Calberlastraße
+Cämmerswalder Str.
+Campingpl. Mockritz
+Carolaplatz
+Chamissostraße
+Chemnitzer Straße
+Clara-Zetkin-Straße
+Comeniusplatz
+Conertplatz
+Corinthstraße
+Coschütz
+Coschützer Straße
+Cossebauder Straße
+Coswig Zentrum/Börse
+Cottaer Straße
+Coventrystraße
+Cunewalder Str.
+Cunnersdorfer Straße
+Dahlienweg
+Diakonissenkrankenhaus
+Dohnaer Straße
+Dölzschen
+Dölzschener Straße
+Dorfhainer Straße
+Dorfplatz Oberpoyritz
+Dorfplatz Pesterwitz
+Dorfstraße
+Dornblüthstraße
+Dörnichtweg
+Dorothea-Erxleben-Straße
+Dr.-Külz-Straße
+Dresdner Straße
+Droste-Hülshoff-Str.
+Dt. Hygiene-Museum
+Dürerstraße
+Ebertplatz
+Eichbergstraße
+Einkaufszentrum Seidnitz
+Eisenbahnbrücke
+ElbePark
+Elbschlösser
+Elisabethstraße
+Elsterweg
+Enno-Heidebroek-Str.
+Erich-Kästner-Str.
+Erich-Kästner-Straße
+Erna-Berger-Straße
+Ernst-Toller-Straße
+Ernst-Wagner-Straße
+Eschebachstraße
+Eugen-Bracht-Str.
+Fehrmannweg
+Fernsehturm
+Festspielhaus Hellerau
+Fetscherplatz
+Flemmingstraße
+Flensburger Straße
+Flügelweg
+Flughafen
+Flughafen West
+Flughafenstraße
+Flughafenverwaltung
+Flugzeugwerft
+Fontane-Center
+Försterlingstraße
+Forststraße
+Frankenbergstraße
+Fraunhofer-Institutszentrum
+Freibad Wostra
+Freiheit
+Freystraße
+Friedensstraße
+Friedhof Leuben
+Friedrichstadt
+Fritz-Meinhardt-Str.
+Fritz-Schulze-Straße
+Fuchsberg
+Fürstenhainer Straße
+Fußweg nach Borthen
+Fußweg nach Sobrigau
+Gabelsbergerstraße
+Gamigstraße
+Gartenstraße
+Gasthof Weißig
+Geblerstraße
+Georg-Palitzsch-Str.
+Gerh.-Hauptmann-Str.
+Gerichtsstraße
+Gerokstraße
+Gewerbegebiet Gittersee
+Gewerbegebiet Kaditz
+Gohlis
+Gohliser Weg
+Gombsen
+Gombsener Straße
+Gompitz
+Gompitzer Höhe
+Gondelweg
+Gönnsdorf
+Goppeln
+Göppersdorfer Weg
+Gorbitzer Straße
+Görlitzer Straße
+Gottfried-Keller-Straße
+Gottleubaer Straße
+Gradsteg
+Greifswalder Straße
+Grenzstraße
+Grenzstraße Mitte
+Gret-Palucca-Straße
+Grillparzerstraße
+Großenhainer Platz
+Großer Garten
+Großglocknerstraße
+Grunaer Weg
+Grundstraße
+Grüner Weg
+Guerickestraße
+Gustav-Freytag-Straße
+Gustavheim
+Gutenbergstraße
+H.-Steyer-Stadion
+Hänichenweg
+Hans-Dankner-Straße
+Hauptbahnhof
+Hauptbahnhof Nord
+Hauptstraße
+Haus 109
+Haus 139
+Haus 156
+Hebbelplatz
+Heckenweg
+Heeresbäckerei
+Hegereiterstraße
+Heidefriedhof
+Heideparkstraße
+Heidestraße
+Heilbronner Straße
+Heinrich-Schütz-Straße
+Heinrich-Tessenow-Weg
+Helena-Rott-Straße
+Hellerau Markt
+Hellerberge
+Hellerhofstraße
+Hellersiedlung
+Hendrichstraße
+Hepkestraße
+Hermann-Michel-Straße
+Hermann-Seidel-Straße
+Hirtenstraße
+Höckendorfer Weg
+Hohlweg
+Hornweg
+Hp. Dobritz
+Hp. Freiberger Straße
+Hp. Niederwartha
+Hp. Pieschen
+Hp. Plauen
+Hp. Strehlen
+Hp. Trachau
+Hp. Weixdorf Bad
+Hubertusplatz
+Hüblerplatz
+Hüfnerweg
+Hugo-Bürkner-Straße
+Hülße-Gymnasium
+Hülßestraße
+Hummelmühle
+Hutbergblick
+Hutbergschule
+Ikarusweg
+Ind.-Park Klotzsche
+Industriegelände
+Infineon
+Infineon Nord
+Infineon Süd
+Innsbrucker Straße
+J.-Vahlteich-Straße
+Jacob-Winter-Platz
+Jacobistraße
+Johannes-Brahms-Str.
+Johannisbergstraße
+Johannisfriedhof
+Johannstadt
+Johannstadt Fähre
+Josef-Herrmann-Straße
+Josephinenstraße
+Julius-Otto-Straße
+Jüngststraße
+Justizvollzugsanstalt
+K.-Kollwitz-Platz
+K.-Kollwitz-Straße
+Kaditz, Am Vorwerksfeld
+Kaditzer Straße
+Kaitzer Straße
+Kapellenweg
+Karcherallee
+Karl-Laux-Straße
+Karl-Marx-Straße
+Karlshagener Weg
+Kasseler Straße
+Kastanienstraße
+Kauschaer Straße
+Kelterei
+Keppgrundstraße
+Keulenbergstraße
+Kiefernweg
+Kipsdorfer Straße
+Kirschenstraße
+Kleestraße
+Kleinnaundorfer Straße
+Kleinzschachw.Fähre
+Klinikum Kreischa
+Klosterteichplatz
+Knappestraße
+Koblenzer Straße
+Köhlerstraße
+Kölner Straße
+Koloniestraße
+Kolpingstraße
+Kongresszentrum
+Königsheimplatz
+Kopernikusstraße
+Körnerplatz
+Kotteweg
+Kotzschweg
+Krebser Straße
+Krebser Straße Nord
+Kreischa
+Kretschmerstraße
+Krhs. Friedrichstadt
+Krhs. Neustadt
+Krhs. St.Joseph-Stift
+Kronstädter Platz
+Künstlerhaus
+Kurhausstraße
+Kurt-Tucholsky-Str.
+Kurt-Tucholsky-Straße
+Laibacher Straße
+Landesbühnen Sachsen
+Lassallestraße
+Laubegast Fähre
+Lauterbacher Straße
+Leiblstraße
+Lene-Glatzer-Straße
+Lengefelder Straße
+Lennéplatz
+Leonardo-da-Vinci-Str.
+Leubener Straße
+Leubnitzer Höhe
+Leutewitz
+Liebenauer Straße
+Liebstädter Straße
+Lipsiusstraße
+Lise-Meitner-Straße
+Liststraße
+Lockwitz
+Lohmener Straße
+Lohrmannstraße
+Lößnitzstraße
+Lößnitzweg
+Louisenstraße
+Ludwig-Hartmann-Straße
+Ludwig-Renn-Allee
+Ludwigstraße
+Luga
+Magdeburger Straße
+Malerstraße
+Malterstraße
+Manitiusstraße
+Mansfelder Straße
+Marie-Wittich-Straße
+Marienallee
+Marienberger Straße
+Markusfriedhof
+Martin-Opitz-Straße
+Maxim-Gorki-Straße
+Merbitzer Straße
+Merianplatz
+Messe Dresden
+Meßweg
+Meußlitzer Straße
+Michaelisstraße
+Mickten
+Mickten (Sternstr.)
+Mickten, Gleisschleife
+Mittelweg
+Mockethaler Straße
+Mockritz
+Mockritzer Straße
+Mohorner Straße
+Mommsenstraße
+Moosleite
+Mordgrundbrücke
+Moritzburger Str.
+Moritzburger Weg
+Mosenstraße
+Mügelner Straße
+Mühlenstraße
+Münchner Platz
+Münzmeisterstraße
+Münzteichweg
+Nätherstraße
+Neubertstraße
+Neugombsen
+Neuländer Straße
+Neunimptscher Straße
+Neuostra
+Neustadt Fähre
+Neustädter Markt
+Nickerner Weg
+Niedergohlis Dorfstr.
+Niedergohlis Dorfstraße
+Niedergohlis Südstr.
+Niedergohlis Südstraße
+Niederpoyritz Fähre
+Niedersedlitzer Platz
+Niedersedlitzer Straße
+Niederseidewitzer Weg
+Niederwaldplatz
+Niederwaldstraße
+Nordstraße
+Nöthnitzer Straße
+Nürnberger Platz
+Ob. Station Schwebebahn
+Oberauer Straße
+Obere Straße
+Obergohlis
+Oberloschwitz
+Ockerwitz
+Ockerwitzer Straße
+Oederaner Straße
+Oehmestraße
+Omsewitz
+Oschatzer Straße
+Oskar-Maune-Straße
+Ostragehege
+Otto-Dix-Ring
+Otto-Pilz-Straße
+Overbeckstraße
+P+R Kaditz
+Palaisplatz
+Pappritz
+Pennrich
+Pennricher Straße
+Permoserstraße
+Pestalozziplatz
+Pesterwitz
+Pfeifferhannsstraße
+Pferderennbahn
+Pfotenhauerstraße
+Pillnitz Fähre
+Pillnitzer Platz
+Pirnaischer Pl. (Wende)
+Pirnaischer Platz
+Platanenstraße
+Plattleite
+Podemusstraße
+Pohlandplatz
+Postplatz
+Prager Straße
+Prellerstraße
+Prof.-Billroth-Straße
+Prof.-Ricker-Straße
+Prohlis (Bad)
+Prohlis (P+R)
+Prohlis/Eink.-Zentr.
+Prohlis/Einkaufszentrum
+Proschhübelstraße
+Pulsnitzer Straße
+Putbuser Weg
+Putjatinplatz
+Querallee
+Quohrener Straße
+R.-Harbig-Stadion (GW)
+Räcknitzhöhe
+Radeberger Str.
+Radeberger Str. Süd
+Radebeul Ost
+Radebeuler Straße
+Rankestraße
+Rathaus Coswig
+Rathaus Klotzsche
+Rathaus Leuben
+Rathaus Pieschen
+Rathaus Pillnitz
+Rathaus Plauen
+Rathausstraße
+Rauensteinstraße
+Regierungspräsidium
+Reichenbachstr.
+Reichenhaller Straße
+Reineckeweg
+Reisstraße
+Reitbahnstraße
+Rennplatzstraße
+Riegelplatz
+Rißweg
+Rochwitz
+Rohrbahn
+Röhrsdorf
+Rosa-Luxemburg-Pl.
+Rosenstraße
+Rossendorfer Str.
+Rottwerndorfer Straße
+Rubensweg
+Rückertstraße
+Rüdesheimer Straße
+Rudolf-Leonhard-Straße
+Saalhausener Straße
+Saarstraße
+Sachsenallee
+Sagarder Weg
+Salzstraße
+Saßnitzer Straße
+Saxoniastraße
+Schäferstraße
+Schanzenstraße
+Scharfenberger Straße
+Scharfensteinstraße
+Schaufußstraße
+Schiffswerft Laubegast
+Schildenstraße
+Schillerplatz
+Schillerstraße
+Schillingstraße
+Schlehenstraße
+Schloß Wackerbarth
+Schlüterstraße
+Schneebergstraße
+Schönaer Straße
+Schule Gompitz
+Schule Kleinnaundorf
+Schulstraße
+Schunckstraße
+Schweizer Straße
+Schweriner Straße
+Schwimmh. Klotzsche
+Sechserhaus
+Seewiesenweg
+Seidnitzer Weg
+Selliner Straße
+Semmelweisstraße
+Sobrigauer Weg
+Sörnewitzer Straße
+Sosaer Straße
+Spenerstraße
+Spitzhausstraße
+Spitzwegstraße
+St.-Benno-Gymnasium
+St.-Pauli-Friedhof
+Staats- u. Unibibliothek
+Staffelsteinstraße
+Stauffenbergallee
+Steglichstraße
+Steigerstraße
+Steinbacher Weg
+Stralsunder Straße
+Straßburger Platz
+Straße des 17.Juni
+Strehlener Platz
+Striesener Straße
+Struppener Straße
+Stuttgarter Straße
+Südhöhe
+Südhöhe Ost
+Südstraße
+Südvorstadt
+Synagoge
+Tannenstraße
+Tännichtstraße
+Tatzberg
+Taubenberg
+Technische Universität
+Technisches Rathaus
+Terminal 1
+Tharandter Straße
+Theaterplatz
+Theilestraße
+Thomas-Mann-Straße
+Tiefer Grund
+Tiergartenstraße
+Tornaer Straße
+Tower
+Trachauer Straße
+Trachenberger Platz
+Trattendorfer Straße
+Trinitatisplatz
+Tronitzer Straße
+Troppauer Straße
+Tschaikowskiplatz
+Tübinger Straße
+Uhlandstraße
+Ullersdorfer Platz
+Universitätsklinikum
+Urnenhain
+Urnenstraße
+Van-Gogh-Straße
+Veilchenstraße
+Vollmarstraße
+Wächterstraße
+Wägnerstraße
+Waldschlößchen
+Waldschlößchenstraße
+Waldteichstraße
+Walpurgisstraße
+Waltherstraße
+Wasaplatz
+Wasastraße
+Wasserwerk Tolkewitz
+Webergasse
+Weidentalstraße
+Weinböhla
+Weißdornstraße
+Weißer Hirsch
+Weißeritzstraße
+Weißig,Eink.-Zentr.
+Weixdorf
+Werftstraße
+Wernerstraße
+Westendstraße
+Wieckestraße
+Wilder Mann
+Wilder-Mann-Straße
+Wilhelm-Busch-Str.
+Wilhelm-Busch-Str. Ost
+Wilhelminenstraße
+Wilischstraße
+Wilschdorf AMD
+Wilschdorfer Landstraße
+Windmühlenweg
+Winterbergstraße
+Wittenberger Straße
+Wölfnitz
+Wölfnitzer Ring
+Wostra
+Wurgwitzer Straße
+Wurzener Straße
+Zeithainer Straße
+Zellescher Weg
+Ziegeleiweg
+Zillerstraße
+Zinnowitzer Straße
+Zinzendorfstraße
+ZMD
+Zoo
+Zschertnitz Ost
+Zschertnitzer Straße
+Zschierener Straße
+Zschonergrundstraße
+Zum Heiderand
+Zur Elbinsel
+Zur Neuen Brücke
+Zweibrüderweg
+Zwickauer Straße
+Zwinglistraße

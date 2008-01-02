@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qam", "qam\qam.vcproj", "{8053ABBA-3030-4772-A576-E203F5F7D6F3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "setup-nsis", "setup-nsis\setup-nsis.vcproj", "{9CE662D2-BDE0-42D1-8419-3F64D4BB6D66}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8053ABBA-3030-4772-A576-E203F5F7D6F3} = {8053ABBA-3030-4772-A576-E203F5F7D6F3}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8053ABBA-3030-4772-A576-E203F5F7D6F3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8053ABBA-3030-4772-A576-E203F5F7D6F3}.Debug|Win32.Build.0 = Debug|Win32
+		{8053ABBA-3030-4772-A576-E203F5F7D6F3}.Release|Win32.ActiveCfg = Release|Win32
+		{8053ABBA-3030-4772-A576-E203F5F7D6F3}.Release|Win32.Build.0 = Release|Win32
+		{9CE662D2-BDE0-42D1-8419-3F64D4BB6D66}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9CE662D2-BDE0-42D1-8419-3F64D4BB6D66}.Debug|Win32.Build.0 = Debug|Win32
+		{9CE662D2-BDE0-42D1-8419-3F64D4BB6D66}.Release|Win32.ActiveCfg = Release|Win32
+		{9CE662D2-BDE0-42D1-8419-3F64D4BB6D66}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
