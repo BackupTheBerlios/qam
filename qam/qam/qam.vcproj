@@ -43,9 +43,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="%QTDIR%\bin\qmake&#x0D;&#x0A;nmake release"
-				ReBuildCommandLine="%QTDIR%\bin\qmake&#x0D;&#x0A;nmake release-clean&#x0D;&#x0A;nmake release"
-				CleanCommandLine="%QTDIR%\bin\qmake&#x0D;&#x0A;nmake release-clean"
+				BuildCommandLine="%QTDIR%\bin\qmake win32\win32-static-release.pro&#x0D;&#x0A;nmake release "
+				ReBuildCommandLine="%QTDIR%\bin\qmake win32\win32-static-release.pro&#x0D;&#x0A;nmake release-clean&#x0D;&#x0A;nmake release"
+				CleanCommandLine="%QTDIR%\bin\qmake win32\win32-static-release.pro&#x0D;&#x0A;nmake release-clean"
 				Output="release\qam.exe"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				IncludeSearchPath=""
@@ -123,6 +123,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\win32\ico\resource.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\viewconfigure.h"
 				>
 			</File>
@@ -155,6 +159,10 @@
 		</File>
 		<File
 			RelativePath=".\src.pro"
+			>
+		</File>
+		<File
+			RelativePath=".\win32\win32-static-release.pro"
 			>
 		</File>
 	</Files>
