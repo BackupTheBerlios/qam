@@ -381,6 +381,7 @@ void CMonitor::onUpgradeRequestFinished()
 	if((!ok1 || !ok2 || (netVersion <= thisVersion)) && !m_Http.hasPendingRequests())
 	{
 		startRetrievingConnectionData();
+		m_timer.start(m_nUpdateInterval * 1000);
 		return;
 	}
 

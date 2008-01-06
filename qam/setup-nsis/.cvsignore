@@ -2,3 +2,9 @@ setup-nsis.vcproj.WIU.dev.user
 Thumbs.db
 Debug
 Release
+Microsoft.VC80.CRT.manifest
+msvcm80.dll
+msvcp80.dll
+msvcr80.dll
+qam.exe
+Thumbs.db

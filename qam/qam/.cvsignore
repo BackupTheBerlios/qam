@@ -7,3 +7,6 @@ msvcm80.dll
 release
 Debug
 qam.vcproj.WIU.dev.user
+Makefile
+Makefile.Debug
+Makefile.Release

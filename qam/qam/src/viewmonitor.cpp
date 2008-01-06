@@ -54,7 +54,7 @@ CViewMonitor::CViewMonitor(QWidget* parent, Qt::WFlags f) :
 	QTreeWidgetItem* i = m_treeWidget.headerItem();
 	i->setText(m_columnIndices.ident, "Linie");
 	i->setText(m_columnIndices.direction, "Ziel");
-	i->setText(m_columnIndices.eta, "in Min.");
+	i->setText(m_columnIndices.eta, "Min.");
 
 	for(int i=0;i<10;i++) {
 		QTreeWidgetItem* item = new QTreeWidgetItem(&m_treeWidget);
@@ -98,9 +98,9 @@ void CViewMonitor::Update(QList<ConnectionEntry> & connections)
 		}
 	}
 
-	m_treeWidget.resizeColumnToContents(0);
-	m_treeWidget.resizeColumnToContents(1);
-	m_treeWidget.resizeColumnToContents(2);
+	m_treeWidget.resizeColumnToContents(m_columnIndices.ident);
+	//m_treeWidget.resizeColumnToContents(m_columnIndices.direction);
+	m_treeWidget.resizeColumnToContents(m_columnIndices.eta);
 }
 
 void CViewMonitor::closeEvent(QCloseEvent *event)
