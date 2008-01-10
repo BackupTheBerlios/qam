@@ -43,8 +43,8 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="copy ..\qam\release\qam.exe qam.exe&#x0D;&#x0A;&quot;C:\Program Files\NSIS\makensis.exe&quot; qamSetup.nsi&#x0D;&#x0A;move qamSetup.exe Release\"
-				ReBuildCommandLine="remove qam.exe&#x0D;&#x0A;remove Release\qamSetup.exe&#x0D;&#x0A;copy ..\qam\release\qam.exe qam.exe&#x0D;&#x0A;&quot;C:\Program Files\NSIS\makensis.exe&quot; qamSetup.nsi&#x0D;&#x0A;move qamSetup.exe Release\"
+				BuildCommandLine="copy ..\qam\win32\qam.exe qam.exe&#x0D;&#x0A;&quot;C:\Program Files\NSIS\makensis.exe&quot; qamSetup.nsi&#x0D;&#x0A;move qamSetup.exe Release\"
+				ReBuildCommandLine="remove qam.exe&#x0D;&#x0A;remove Release\qamSetup.exe&#x0D;&#x0A;copy ..\qam\win32\qam.exe qam.exe&#x0D;&#x0A;&quot;C:\Program Files\NSIS\makensis.exe&quot; qamSetup.nsi&#x0D;&#x0A;move qamSetup.exe Release\"
 				CleanCommandLine="del qam.exe&#x0D;&#x0A;del Release\qamSetup.exe"
 				Output="Release\qamSetup.exe"
 				PreprocessorDefinitions="WIN32;NDEBUG"
