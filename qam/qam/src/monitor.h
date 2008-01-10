@@ -71,6 +71,17 @@ class CMonitor : public QFrame
 	CMonitor(QWidget* parent = 0, Qt::WFlags = 0);
 	~CMonitor();
 
+  public slots:
+	void onValuesChanged(QStringList& affected, void* causer);
+	
+	void onSysTrayMenuShowClicked();
+	void onSysTrayMenuHideClicked();
+	void onSysTrayMenuCloseClicked();
+	void onSysTrayIconActivated(QSystemTrayIcon::ActivationReason);
+
+	void onContextMenuHideClicked();
+	void onContextMenuCloseClicked();
+
   protected:
 	void closeEvent(QCloseEvent *event);
 	void mouseMoveEvent(QMouseEvent*);
@@ -79,13 +90,7 @@ class CMonitor : public QFrame
 	void mouseDoubleClickEvent(QMouseEvent* e);
 	void enterEvent(QEvent*) { setCursor(Qt::OpenHandCursor); };
 	void leaveEvent(QEvent*) { unsetCursor(); };
-
-  public slots:
-	void onValuesChanged(QStringList& affected, void* causer);
-	void onSysTrayMenuShowClicked();
-	void onSysTrayMenuHideClicked();
-	void onSysTrayMenuCloseClicked();
-	void onSysTrayIconActivated(QSystemTrayIcon::ActivationReason);
+	void contextMenuEvent(QContextMenuEvent* e);
 
   private slots:
 	void onMonitorSettingsApplied();
@@ -123,6 +128,13 @@ class CMonitor : public QFrame
 	};
 	typedef struct _SystemTray SystemTray;
 
+	struct _ContextMenu {
+		QAction* hideAction;
+		QAction* closeAction;
+		QMenu* contextMenu;
+	};
+	typedef struct _ContextMenu ContextMenu;
+
 	QVBoxLayout m_topLayout;
 	CTabWidget	m_tabWidget;
 		PageIndex m_pageIndex;
@@ -133,6 +145,7 @@ class CMonitor : public QFrame
 	CFooter m_footer;
 
 	SystemTray m_systemTray;
+	ContextMenu m_contextMenu;
 
 	int m_nUpdateInterval; // in seconds
 	QTimer m_timer;
@@ -160,7 +173,13 @@ class CMonitor : public QFrame
 	void loadSettings();
 	void writeSettings();
 
+	void minimize();
+	void restore();
+
 	void setupSystray();
+	void setupContextMenu();
+
+	void quit();
 };
 
 #endif // #ifndef _MONITOR_H_

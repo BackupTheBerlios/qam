@@ -103,9 +103,10 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 		move(settings.value("pos", QPoint(200, 200)).toPoint());
 	settings.endGroup();
 
-	// setup systray
+	// setup systray and generic context menu
 
 	setupSystray();
+	setupContextMenu();
 
 	// set up event handlers
 
@@ -572,20 +573,7 @@ void CMonitor::mouseMoveEvent(QMouseEvent* e)
 void CMonitor::onCurrentTabChanged(int index)
 {
 	if(index == m_pageIndex.close) {
-		// TODO: find out how to close QApplication in a way that it send close-events around
-		// begin dirty hack
-		QCloseEvent* e = new QCloseEvent();
-		e->setAccepted(false);
-		closeEvent(e);
-		e->setAccepted(false);
-		m_pageMonitor.closeEvent(e);
-		e->setAccepted(false);
-		m_pageSetMonitor.closeEvent(e);
-		e->setAccepted(false);
-		m_pageConfigure.closeEvent(e);
-		//end dirty hack
-		close();
-		qApp->quit();
+		quit();
 	}
 }
 
@@ -611,8 +599,11 @@ void CMonitor::setupSystray()
 {
 	SystemTray& s = m_systemTray;
 	s.showAction = new QAction(tr("Zeigen"), this);
+	s.showAction->setIcon(QIcon(":/pic/menu_maximize_32x32.xpm"));
 	s.hideAction = new QAction(tr("Verstecken"), this);
+	s.hideAction->setIcon(QIcon(":/pic/menu_minimize_32x32.xpm"));
 	s.closeAction = new QAction(tr("Beenden"), this);
+	s.closeAction->setIcon(QIcon(":/pic/menu_close_32x32.xpm"));
 	s.trayMenu = new QMenu();
 	s.trayMenu->addAction(s.showAction);
 	s.trayMenu->addAction(s.hideAction);
@@ -636,15 +627,83 @@ void CMonitor::setupSystray()
 
 void CMonitor::onSysTrayMenuShowClicked()
 {
-	setVisible(true);
+	restore();
 }
 
 void CMonitor::onSysTrayMenuHideClicked()
 {
-	setVisible(false);
+	minimize();
 }
 
 void CMonitor::onSysTrayMenuCloseClicked()
+{
+	quit();
+}
+
+void CMonitor::onSysTrayIconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+	switch (reason) {
+		case QSystemTrayIcon::Trigger:
+		case QSystemTrayIcon::DoubleClick:
+			setVisible(!isVisible());
+			break;
+		case QSystemTrayIcon::MiddleClick:
+			break;
+		default:
+			;
+	}
+}
+
+void CMonitor::minimize()
+{
+	m_timer.stop();
+	m_Http.close();
+	m_Http.clearPendingRequests();
+	setVisible(false);
+}
+
+void CMonitor::restore()
+{
+	startRetrievingConnectionData();
+	m_timer.start(m_nUpdateInterval * 1000);
+	setVisible(true);
+}
+
+void CMonitor::setupContextMenu()
+{
+	ContextMenu& c = m_contextMenu;
+	c.hideAction = new QAction(tr("Verstecken"), this);
+	c.hideAction->setIcon(QIcon(":/pic/menu_minimize_32x32.xpm"));
+	c.closeAction = new QAction(tr("Beenden"), this);
+	c.closeAction->setIcon(QIcon(":/pic/menu_close_32x32.xpm"));
+	c.contextMenu = new QMenu();
+	c.contextMenu->addAction(c.hideAction);
+	c.contextMenu->addSeparator();
+	c.contextMenu->addAction(c.closeAction);
+
+	connect(c.hideAction, SIGNAL(triggered()),
+			this, SLOT(onContextMenuHideClicked()));
+	connect(c.closeAction, SIGNAL(triggered()),
+			this, SLOT(onContextMenuCloseClicked()));
+}
+
+void CMonitor::contextMenuEvent(QContextMenuEvent* e)
+{
+	e->accept();
+	m_contextMenu.contextMenu->popup(e->globalPos());
+}
+
+void CMonitor::onContextMenuHideClicked()
+{
+	minimize();
+}
+
+void CMonitor::onContextMenuCloseClicked()
+{
+	quit();
+}
+
+void CMonitor::quit()
 {
 	// TODO: find out how to close QApplication in a way that it send close-events around
 	// begin dirty hack
@@ -660,18 +719,4 @@ void CMonitor::onSysTrayMenuCloseClicked()
 	//end dirty hack
 	close();
 	qApp->quit();
-}
-
-void CMonitor::onSysTrayIconActivated(QSystemTrayIcon::ActivationReason reason)
-{
-	switch (reason) {
-		case QSystemTrayIcon::Trigger:
-		case QSystemTrayIcon::DoubleClick:
-			setVisible(!isVisible());
-			break;
-		case QSystemTrayIcon::MiddleClick:
-			break;
-		default:
-			;
-	}
 }

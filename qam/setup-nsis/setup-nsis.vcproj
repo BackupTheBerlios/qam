@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="8.00"
 	Name="setup-nsis"
 	ProjectGUID="{9CE662D2-BDE0-42D1-8419-3F64D4BB6D66}"
 	RootNamespace="setup-nsis"
@@ -46,7 +46,7 @@
 				BuildCommandLine="copy ..\qam\release\qam.exe qam.exe&#x0D;&#x0A;&quot;C:\Program Files\NSIS\makensis.exe&quot; qamSetup.nsi&#x0D;&#x0A;move qamSetup.exe Release\"
 				ReBuildCommandLine="remove qam.exe&#x0D;&#x0A;remove Release\qamSetup.exe&#x0D;&#x0A;copy ..\qam\release\qam.exe qam.exe&#x0D;&#x0A;&quot;C:\Program Files\NSIS\makensis.exe&quot; qamSetup.nsi&#x0D;&#x0A;move qamSetup.exe Release\"
 				CleanCommandLine="del qam.exe&#x0D;&#x0A;del Release\qamSetup.exe"
-				Output=""
+				Output="Release\qamSetup.exe"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				IncludeSearchPath=""
 				ForcedIncludes=""

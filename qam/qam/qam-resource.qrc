@@ -4,6 +4,11 @@
   <file>pic/changestation_256x256.xpm</file>
   <file>pic/config_256x256.xpm</file>
   <file>pic/close_256x256.xpm</file>
+
+  <file>pic/menu_maximize_32x32.xpm</file>
+  <file>pic/menu_minimize_32x32.xpm</file>
+  <file>pic/menu_close_32x32.xpm</file>
+  
   <file>haltestellen.txt</file>
 </qresource>
 </RCC>
