@@ -154,13 +154,12 @@ class CMonitor : public QFrame
 #endif // #if QT_VERSION >= 0x040200
 	ContextMenu m_contextMenu;
 
-	int m_nUpdateInterval; // in seconds
-	QTimer m_timer;
-
 	QString m_location;
 	QString m_station;
 	QString m_eta;
 
+	int m_nUpdateInterval; // in seconds
+	QTimer m_timer;
 	QHttp m_Http;
 	int m_nUpdateRequestId;
 	bool m_showingUpdateInfo;

@@ -412,3 +412,4 @@ bool CViewConfigure::proxyInputValid() const
 
 	return true;	
 }
+

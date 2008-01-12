@@ -48,9 +48,15 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 	m_pageSetMonitor(),
 	m_pageConfigure(),
 	m_pageClose(),
+	m_footer(this),
+	
+	m_location("Dresden"),
+	m_station("Albertplatz"),
+	m_eta("3"),
 
-	m_Http(this),
 	m_nUpdateInterval(10),
+	m_timer(),
+	m_Http(this),
 	m_nUpdateRequestId(0),
 	m_showingUpdateInfo(false),
 	m_useProxy(false),
@@ -59,11 +65,7 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 	m_proxyUser(),
 	m_proxyPassword(),
 	
-	m_location("Dresden"),
-	m_station("Albertplatz"),
-	m_eta("3"),
-	m_pointMouseToWindowDiff(0, 0),
-	m_footer(this)
+	m_pointMouseToWindowDiff(0, 0)
 {
 	// init widgets
 

@@ -22,10 +22,12 @@
 
 CResizer::CResizer(QWidget* toResize, ResizeDirection direction) :
 	m_widgetToResize(toResize),
-	m_resizeDirection(direction),
+	
 	m_lastMousePosX(-1),
 	m_lastMousePosY(-1),
-	m_buttonDown(false)
+	m_buttonDown(false),
+
+	m_resizeDirection(direction)
 {
 	switch(m_resizeDirection) {
 		case Left:
