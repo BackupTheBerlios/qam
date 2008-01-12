@@ -75,7 +75,8 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 	// set tab-pages
 
 	m_tabWidget.setTabPosition(QTabWidget::South);
-	m_tabWidget.setUsesScrollButtons(false);
+	m_tabWidget.setUsesScrollButtons(true);
+
 	m_pageIndex.monitor = m_tabWidget.addTab(&m_pageMonitor, "");
 		m_tabWidget.setTabIcon(m_pageIndex.monitor, QIcon(":/pic/station_256x256.xpm"));
 		m_tabWidget.setTabToolTip(m_pageIndex.setMonitor, "Abfahrtsanzeige");
@@ -93,10 +94,9 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 
 	setMinimumSize(200, 200);
 
-	// load main window state
+	// load main window settings
 
 	loadSettings();
-
 	COptions& settings = COptions::getInstance();
 	settings.beginGroup("MainWindow");
 		resize(settings.value("size", QSize(300, 200)).toSize());
@@ -105,7 +105,9 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 
 	// setup systray and generic context menu
 
+#if QT_VERSION >= 0x040200
 	setupSystray();
+#endif
 	setupContextMenu();
 
 	// set up event handlers
@@ -446,7 +448,9 @@ void CMonitor::closeEvent(QCloseEvent *event)
 {	
 	m_timer.stop();
 
+#if QT_VERSION >= 0x040200
 	m_systemTray.trayIcon->hide();
+#endif // #if QT_VERSION >= 0x040200
 
 	writeSettings();
 	// these should be only written on shutdown ;)
@@ -479,6 +483,16 @@ void CMonitor::loadSettings()
 			flags ^= Qt::WindowStaysOnTopHint;
 		setWindowFlags(flags);
 #endif
+
+		bool useTabIcons = settings.value("useTabIcons", true).toBool();
+		m_tabWidget.setTabIcon(m_pageIndex.monitor, useTabIcons ? QIcon(":/pic/station_256x256.xpm") : QIcon());
+		m_tabWidget.setTabIcon(m_pageIndex.setMonitor, useTabIcons ? QIcon(":/pic/changestation_256x256.xpm") : QIcon());
+		m_tabWidget.setTabIcon(m_pageIndex.configure, useTabIcons ? QIcon(":/pic/config_256x256.xpm") : QIcon());
+		m_tabWidget.setTabIcon(m_pageIndex.close, useTabIcons ? QIcon(":/pic/close_256x256.xpm") : QIcon());
+		m_tabWidget.setTabText(m_pageIndex.monitor, useTabIcons ? "" : "Abfahrten");
+		m_tabWidget.setTabText(m_pageIndex.setMonitor, useTabIcons ? "" : "Ändern");
+		m_tabWidget.setTabText(m_pageIndex.configure, useTabIcons ? "" : "Einstellungen");
+		m_tabWidget.setTabText(m_pageIndex.close, useTabIcons ? "" : "Schließen");
     settings.endGroup();
 
 	settings.beginGroup("Network");
@@ -595,6 +609,7 @@ void CMonitor::onConfigureSettingsApplied()
 	m_tabWidget.setCurrentIndex(m_pageIndex.monitor);
 }
 
+#if QT_VERSION >= 0x040200
 void CMonitor::setupSystray()
 {
 	SystemTray& s = m_systemTray;
@@ -624,22 +639,30 @@ void CMonitor::setupSystray()
 	s.trayIcon->setIcon(QIcon(":/pic/station_256x256.xpm"));
 	s.trayIcon->show();
 }
+#endif // #if QT_VERSION >= 0x040200
 
+#if QT_VERSION >= 0x040200
 void CMonitor::onSysTrayMenuShowClicked()
 {
 	restore();
 }
+#endif // #if QT_VERSION >= 0x040200
 
+#if QT_VERSION >= 0x040200
 void CMonitor::onSysTrayMenuHideClicked()
 {
 	minimize();
 }
+#endif // #if QT_VERSION >= 0x040200
 
+#if QT_VERSION >= 0x040200
 void CMonitor::onSysTrayMenuCloseClicked()
 {
 	quit();
 }
+#endif //#if QT_VERSION >= 0x040200
 
+#if QT_VERSION >= 0x040200
 void CMonitor::onSysTrayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
 	switch (reason) {
@@ -653,6 +676,7 @@ void CMonitor::onSysTrayIconActivated(QSystemTrayIcon::ActivationReason reason)
 			;
 	}
 }
+#endif // #if QT_VERSION >= 0x040200
 
 void CMonitor::minimize()
 {

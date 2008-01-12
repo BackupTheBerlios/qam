@@ -37,6 +37,7 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 	m_labelWindowTransparency("Fenstertransparenz"),
 	m_spinWindowTransparency(),
 	m_checkWindowAlwaysOnTop("Fenster immer zuoberst"),
+	m_checkUseTabIcons("Tab-Icons statt Text"),
 	
 	// network settings
 	m_groupNetworkSettings("Netzwerk"),
@@ -85,8 +86,11 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 		m_spinWindowTransparency.setRange(0, 80);
 		m_spinWindowTransparency.setSingleStep(1);
 		m_spinWindowTransparency.setSuffix(" %");
+	QHBoxLayout* layoutCheckUseTabIcons = new QHBoxLayout();
+	m_gridWindowSettings.addLayout(layoutCheckUseTabIcons, 5, 0, 1, 2);
+		layoutCheckUseTabIcons->addWidget(&m_checkUseTabIcons, Qt::AlignLeft);
 	QHBoxLayout* layoutCheckWindowOnTop = new QHBoxLayout();
-	m_gridWindowSettings.addLayout(layoutCheckWindowOnTop, 5, 0, 1, 2);
+	m_gridWindowSettings.addLayout(layoutCheckWindowOnTop, 6, 0, 1, 2);
 	layoutCheckWindowOnTop->addWidget(&m_checkWindowAlwaysOnTop, Qt::AlignLeft);
 		m_checkWindowAlwaysOnTop.setEnabled(false);
 	layoutCheckWindowOnTop->addStretch(10);
@@ -185,6 +189,8 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 				this, SLOT(onSpinButtonvalueChanged(int)));
 	connect(&m_spinWindowTransparency, SIGNAL(valueChanged(int)),
 				this, SLOT(onSpinButtonvalueChanged(int)));
+	connect(&m_checkUseTabIcons, SIGNAL(stateChanged(int)),
+				this, SLOT(onCheckBoxStateChanged(int)));
 	connect(&m_checkWindowAlwaysOnTop, SIGNAL(stateChanged(int)),
 				this, SLOT(onCheckBoxStateChanged(int)));
 
@@ -224,6 +230,7 @@ void CViewConfigure::loadSettings()
 		double fVal = settings.value("windowOpacity", 80).toDouble();
 		int nVal = (100 - (int)(fVal * 100));
 		m_spinWindowTransparency.setValue(nVal);
+		m_checkUseTabIcons.setCheckState(settings.value("useTabIcons", true).toBool() ? Qt::Checked : Qt::Unchecked);
 #if 0
 		m_checkWindowAlwaysOnTop.setCheckState(settings.value("alwaysOnTop", true).toBool() ? Qt::Checked : Qt::Unchecked);
 #endif
@@ -256,13 +263,14 @@ void CViewConfigure::writeSettings()
 		settings.setValue("updateInterval", m_spinUpdateInterval.value());
 		double val = (double)(100 - m_spinWindowTransparency.value()) / 100;
 		settings.setValue("windowOpacity", val);
+		settings.setValue("useTabIcons", (m_checkUseTabIcons.checkState() == Qt::Checked) ? true : false);
 #if 0
 		settings.setValue("alwaysOnTop", m_checkWindowAlwaysOnTop.checkState() == Qt::Checked ? true : false);
 #endif
     settings.endGroup();
 
 	settings.beginGroup("Network");
-		settings.setValue("checkForNewVersion", m_checkCheckForNewVersion.checkState() == Qt::Checked ? true : false);
+		settings.setValue("checkForNewVersion", (m_checkCheckForNewVersion.checkState() == Qt::Checked) ? true : false);
 #if QT_VERSION >= 0x040100
 		settings.setValue("useProxy", m_checkUseProxy.checkState() == Qt::Checked ? true : false);
 		QString proxyHost = m_editProxyHost.text().section(':', 0, 0);

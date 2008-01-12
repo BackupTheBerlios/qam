@@ -37,8 +37,11 @@
 #include <QApplication>
 #include <QAction>
 #include <QIcon>
-#include <QSystemTrayIcon>
 #include <QMenu>
+
+#if QT_VERSION >= 0x040200 // systemtrayicon is included from qt 4.2
+#include <QSystemTrayIcon>
+#endif 
 
 #include "connectionentry.h"
 #include "viewmonitor.h"
@@ -46,17 +49,15 @@
 #include "viewconfigure.h"
 #include "footer.h"
 
-typedef unsigned int uint;
-
 class CVersion
 {
   public:
-	static uint major() {return m_major;};
-	static uint minor() {return m_minor;};
-	static uint revision() {return m_revision;};
+	static unsigned int major() { return m_major; };
+	static unsigned int minor() { return m_minor; };
+	static unsigned int revision() { return m_revision; };
 	static void version(uint& major, uint& minor, uint& revision) { major = m_major; minor = m_minor; revision = m_revision; };
   protected:
-	static const uint m_major = 1, m_minor = 2, m_revision = 0;
+	static const unsigned int m_major = 1, m_minor = 2, m_revision = 1;
   private:
 	CVersion();
 	~CVersion();
@@ -73,11 +74,13 @@ class CMonitor : public QFrame
 
   public slots:
 	void onValuesChanged(QStringList& affected, void* causer);
-	
+
+#if QT_VERSION >= 0x040200
 	void onSysTrayMenuShowClicked();
 	void onSysTrayMenuHideClicked();
 	void onSysTrayMenuCloseClicked();
 	void onSysTrayIconActivated(QSystemTrayIcon::ActivationReason);
+#endif // #if QT_VERSION >= 0x040200
 
 	void onContextMenuHideClicked();
 	void onContextMenuCloseClicked();
@@ -118,6 +121,7 @@ class CMonitor : public QFrame
 	};
 	typedef struct _PageIndex PageIndex;
 
+#if QT_VERSION >= 0x040200
 	struct _SystemTray {
 		QAction* showAction;
 		QAction* hideAction;
@@ -127,6 +131,7 @@ class CMonitor : public QFrame
 		QSystemTrayIcon* trayIcon;
 	};
 	typedef struct _SystemTray SystemTray;
+#endif //#if QT_VERSION >= 0x040200
 
 	struct _ContextMenu {
 		QAction* hideAction;
@@ -144,7 +149,9 @@ class CMonitor : public QFrame
 		QWidget m_pageClose;
 	CFooter m_footer;
 
+#if QT_VERSION >= 0x040200
 	SystemTray m_systemTray;
+#endif // #if QT_VERSION >= 0x040200
 	ContextMenu m_contextMenu;
 
 	int m_nUpdateInterval; // in seconds
@@ -176,7 +183,9 @@ class CMonitor : public QFrame
 	void minimize();
 	void restore();
 
+#if QT_VERSION >= 0x040200
 	void setupSystray();
+#endif
 	void setupContextMenu();
 
 	void quit();

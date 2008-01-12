@@ -113,6 +113,7 @@ class CViewConfigure : public QWidget
 		QLabel m_labelWindowTransparency;
 		QSpinBox m_spinWindowTransparency;
 		QCheckBox m_checkWindowAlwaysOnTop;
+		QCheckBox m_checkUseTabIcons;
 
 	// network settings
 	CGroupBox m_groupNetworkSettings;
