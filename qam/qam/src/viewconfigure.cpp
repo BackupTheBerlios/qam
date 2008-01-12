@@ -164,10 +164,10 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 		m_layoutButtons.setAlignment(&m_widgetButtonSpacer, Qt::AlignLeft);
 		m_widgetButtonSpacer.setMinimumSize(0,0);
 	m_layoutButtons.addWidget(&m_buttonApply);
-		m_layoutButtons.setAlignment(&m_buttonApply, Qt::AlignRight);
+		m_layoutButtons.setAlignment(&m_buttonApply, Qt::AlignLeft);
 		m_buttonApply.setEnabled(false);
 	m_layoutButtons.addWidget(&m_buttonReset);
-		m_layoutButtons.setAlignment(&m_buttonReset, Qt::AlignRight);
+		m_layoutButtons.setAlignment(&m_buttonReset, Qt::AlignLeft);
 		m_buttonReset.setEnabled(false);
 
 	// set stretch factors

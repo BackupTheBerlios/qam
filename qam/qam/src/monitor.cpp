@@ -40,13 +40,18 @@
 
 
 CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :	
-	//QWidget(parent, f),
 	QFrame(parent, f),
+	
 	m_topLayout(this),
+	m_tabWidget(),
+	m_pageMonitor(&m_tabWidget),
+	m_pageSetMonitor(),
+	m_pageConfigure(),
+	m_pageClose(),
 
 	m_Http(this),
-	m_nUpgradeRequestId(0),
 	m_nUpdateInterval(10),
+	m_nUpgradeRequestId(0),
 	m_useProxy(false),
 	m_proxyHost(),
 	m_proxyPort(80),
@@ -66,9 +71,10 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 	setFrameStyle(QFrame::StyledPanel | QFrame::Raised);
 	setLineWidth(1);
 	setMidLineWidth(0);
-	
+
 	m_topLayout.setMargin(0);
 	m_topLayout.setSpacing(0);
+
 	m_topLayout.addWidget(&m_tabWidget);
 	m_topLayout.addWidget(&m_footer);
 
@@ -84,8 +90,8 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 		m_tabWidget.setTabIcon(m_pageIndex.setMonitor, QIcon(":/pic/changestation_256x256.xpm"));
 		m_tabWidget.setTabToolTip(m_pageIndex.setMonitor, "Anzeige ändern");
 	m_pageIndex.configure = m_tabWidget.addTab(&m_pageConfigure, "");
-		m_tabWidget.setTabToolTip(m_pageIndex.configure, "Einstellungen");
 		m_tabWidget.setTabIcon(m_pageIndex.configure, QIcon(":/pic/config_256x256.xpm"));
+		m_tabWidget.setTabToolTip(m_pageIndex.configure, "Einstellungen");
 	m_pageIndex.close = m_tabWidget.addTab(&m_pageClose, "");
 		m_tabWidget.setTabIcon(m_pageIndex.close, QIcon(":/pic/close_256x256.xpm"));
 		m_tabWidget.setTabToolTip(m_pageIndex.close, "Schließen");
@@ -98,13 +104,13 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 
 	loadSettings();
 	COptions& settings = COptions::getInstance();
+
 	settings.beginGroup("MainWindow");
 		resize(settings.value("size", QSize(300, 200)).toSize());
 		move(settings.value("pos", QPoint(200, 200)).toPoint());
 	settings.endGroup();
 
 	// setup systray and generic context menu
-
 #if QT_VERSION >= 0x040200
 	setupSystray();
 #endif
@@ -613,13 +619,14 @@ void CMonitor::onConfigureSettingsApplied()
 void CMonitor::setupSystray()
 {
 	SystemTray& s = m_systemTray;
+	s.trayMenu = new QMenu();
+
 	s.showAction = new QAction(tr("Zeigen"), this);
 	s.showAction->setIcon(QIcon(":/pic/menu_maximize_32x32.xpm"));
 	s.hideAction = new QAction(tr("Verstecken"), this);
 	s.hideAction->setIcon(QIcon(":/pic/menu_minimize_32x32.xpm"));
 	s.closeAction = new QAction(tr("Beenden"), this);
 	s.closeAction->setIcon(QIcon(":/pic/menu_close_32x32.xpm"));
-	s.trayMenu = new QMenu();
 	s.trayMenu->addAction(s.showAction);
 	s.trayMenu->addAction(s.hideAction);
 	s.trayMenu->addSeparator();
