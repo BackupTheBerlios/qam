@@ -1,6 +1,6 @@
 /******************************************************************************
- * 	qam - a qt 'abfahrtsmonitor
- *	Copyright (C) 2007  gf@nichtcool.de
+ * 	qam - a qt based abfahrtsmonitor
+ *	Copyright (C) 2008  gf@nichtcool.de
  *
  *	This program is free software; you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License

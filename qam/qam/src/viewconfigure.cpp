@@ -1,6 +1,6 @@
 /******************************************************************************
- * 	qam - a qt 'abfahrtsmonitor
- *	Copyright (C) 2007  gf@nichtcool.de
+ * 	qam - a qt based abfahrtsmonitor
+ *	Copyright (C) 2008  gf@nichtcool.de
  *
  *	This program is free software; you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License
@@ -140,7 +140,7 @@ CViewConfigure::CViewConfigure(QWidget* parent, Qt::WFlags f) :
 	m_layoutAbout.addWidget(&m_editAbout);
 	m_layoutAbout.setMargin(3);
 	m_layoutAbout.setSpacing(0);
-		QString about = "copyright (C) 2007 by gf@nichtcool.de\n\n"
+		QString about = "copyright (C) 2008 by gf@nichtcool.de\n\n"
 						"Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz.\n\n"
 						"Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.\n\n"
 						"Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, schreiben Sie an die Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110, USA.";
