@@ -162,7 +162,8 @@ class CMonitor : public QFrame
 	QString m_eta;
 
 	QHttp m_Http;
-	int m_nUpgradeRequestId;
+	int m_nUpdateRequestId;
+	bool m_showingUpdateInfo;
 	bool m_useProxy;
 	QString m_proxyHost;
 	uint m_proxyPort;
@@ -175,7 +176,7 @@ class CMonitor : public QFrame
 	void startRetrievingConnectionData();
 	bool getNewConnections();
 
-	void onUpgradeRequestFinished();
+	void onUpdateRequestFinished();
 
 	void loadSettings();
 	void writeSettings();

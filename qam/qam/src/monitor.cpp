@@ -51,7 +51,8 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 
 	m_Http(this),
 	m_nUpdateInterval(10),
-	m_nUpgradeRequestId(0),
+	m_nUpdateRequestId(0),
+	m_showingUpdateInfo(false),
 	m_useProxy(false),
 	m_proxyHost(),
 	m_proxyPort(80),
@@ -158,7 +159,12 @@ CMonitor::CMonitor(QWidget* parent, Qt::WFlags f) :
 
 	if(settings.value("StartupBehaviour/CheckForUpgrades", true).toBool()) {
 		m_Http.setHost("nichtcool.de", 80);
-		m_nUpgradeRequestId = m_Http.get("/dl/dev/qam/currentVersion");
+		QString url;
+		url = "/dl/dev/qam/currentVersion";
+#ifdef _DEBUG
+		url += ".debug";
+#endif
+		m_nUpdateRequestId = m_Http.get(url);
 	} else {
 		startRetrievingConnectionData();
 		m_timer.start(m_nUpdateInterval * 1000);
@@ -172,7 +178,7 @@ CMonitor::~CMonitor()
 
 void CMonitor::startRetrievingConnectionData()
 {
-	m_nUpgradeRequestId = 0;
+	m_nUpdateRequestId = 0;
 
 #if QT_VERSION >= 0x040100
 	if(m_useProxy) {
@@ -219,9 +225,10 @@ void CMonitor::onResponseHeaderReceived(const QHttpResponseHeader &responseHeade
 #endif
 
     if (responseHeader.statusCode() != 200) {
-		if(m_nUpgradeRequestId != 0) {
-			m_nUpgradeRequestId = 0;
+		if(m_nUpdateRequestId != 0) {
+			m_nUpdateRequestId = 0;
 			startRetrievingConnectionData();
+			m_timer.start(m_nUpdateInterval * 1000);
 			return;
 		}
 
@@ -242,8 +249,8 @@ void CMonitor::onHttpRequestFinished(int /* requestId */, bool error)
 	if(error)
 		return;
 
-	if(m_nUpgradeRequestId != 0) {
-		onUpgradeRequestFinished();
+	if(m_nUpdateRequestId != 0) {
+		onUpdateRequestFinished();
 		return;
 	}
 
@@ -343,9 +350,13 @@ void CMonitor::onHttpRequestFinished(int /* requestId */, bool error)
 	}
 }
 
-void CMonitor::onUpgradeRequestFinished()
+void CMonitor::onUpdateRequestFinished()
 {
 	QString doc = m_Http.readAll();
+
+	if(m_showingUpdateInfo) {
+		return;
+	}
 
 	if(doc.length() == 0) {
 		if(!m_Http.hasPendingRequests()) {
@@ -358,10 +369,14 @@ void CMonitor::onUpgradeRequestFinished()
 	QString line = doc.section("\n", 0, 0);
 
 	if(line.length() == 0) {
-		if(!m_Http.hasPendingRequests())
+		if(!m_Http.hasPendingRequests()) {
 			startRetrievingConnectionData();
+			m_timer.start(m_nUpdateInterval * 1000);
+		}
 		return;
 	}
+
+	m_Http.clearPendingRequests();
 
 	uint major = 0, minor = 0, revision = 0;
 	bool ok1, ok2, ok3;
@@ -371,8 +386,8 @@ void CMonitor::onUpgradeRequestFinished()
 	revision = line.section('.', 2, 2).toUInt(&ok3);
 
 	if(!ok1 || !ok2 || !ok3) {
-		if(!m_Http.hasPendingRequests())
-			startRetrievingConnectionData();
+		startRetrievingConnectionData();
+		m_timer.start(m_nUpdateInterval * 1000);
 		return;
 	}
 
@@ -428,12 +443,14 @@ void CMonitor::onUpgradeRequestFinished()
 		}
 	}
 
+	m_showingUpdateInfo = true;
 	QMessageBox::information
 		(this, 
 		"Neue Version verfügbar", 
 		message,
 		QMessageBox::Ok,
 		QMessageBox::NoButton);
+	m_showingUpdateInfo = false;
 
 	startRetrievingConnectionData();
 	m_timer.start(m_nUpdateInterval * 1000);
